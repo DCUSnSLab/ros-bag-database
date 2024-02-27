@@ -6,7 +6,7 @@ services:
         networks:
             - bagdb
         volumes:
-            - bags:/bags:ro # Needs to be the same as the bagdb container below
+            - ../../data/bags:/bags:ro # Needs to be the same as the bagdb container below
             - scripts:/scripts
             - docker_cache:/var/lib/docker
         command: ["dockerd", "--host=tcp://0.0.0.0:2375"]
@@ -20,7 +20,7 @@ services:
         ports:
             - "8080:8080"
         volumes:
-            - bags:/bags # Needs to be same path as dind container above
+            - ../../data/bags:/bags # Needs to be same path as dind container above
             - indexes:/root/.ros-bag-database/indexes
             - scripts:/scripts
         environment:
